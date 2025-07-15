@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="vue-custom-element-master1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/verificacao-configurador/JS/libraries/vue-custom-element-master.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="unused">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/SouMaisDelivery/images/unused/icon.zip!/" />
+      <root url="jar://$PROJECT_DIR$/SouMaisDelivery/images/unused/button.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

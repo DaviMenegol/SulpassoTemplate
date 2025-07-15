@@ -1,0 +1,93 @@
+#background #page #body .featured {
+    height: 520px !important;
+}
+#background #page #body .featured:after {
+        right : -8.6%;
+}
+#page #body .featured section{
+	margin: 50px 0 0 30px;
+    width: 880px !important;
+    height: 420px !important;
+    padding: 5px !important;
+}
+/*************Start rules for the contac form*******************/
+form{
+    border : 2px solid grey;
+	height : 380px;
+}
+form #fields-holder{
+	overflow: hidden;
+    width: 100%;
+    height: 150px;
+	padding-top : 90px;
+}
+form #fields-holder .fieldset{
+	overflow: hidden;
+    width: 100%;
+    height: 50px;	
+	text-align : center;
+}
+/*
+http://www.maujor.com/tutorial/seletores-css3.php
+http://www.uxdesign.blog.br/front-end/novos-seletores-e-pseudo-elementos-do-css3/
+*/
+form #fields-holder .fieldset:last-child{
+    height: 80px;	
+}
+form #fields-holder .fieldset:last-child textarea{
+    height: 65px;
+    width: 400px;
+    border-radius: 15px;
+    padding: 0 5px 0 5px;
+}
+form .left{
+	display: block;
+    width: 20%;
+    float: left;
+    text-align: right;
+    padding-top: 10px;
+}
+form .right{
+    display: block;
+    width: 75%;
+    float: right;
+    text-align: left;
+    padding-top: 5px;
+}
+form span{
+	height : 30px;
+	font-size : 20px;
+	margin-top : 5px;
+}
+form input[type="text"], form input[type="password"]{
+	width : 400px;
+	height : 30px;
+	/*color : #BABACA;*/
+	text-align : left;
+	text-transform : uppercase;
+	border-radius : 20px;
+	padding : 0 10px 0 10px;
+}
+.btn{
+	height : 50px;
+	width : 150px;
+	border-radius : 15px;
+
+	/*
+	http://www.cssmatic.com/box-shadow
+	http://www.w3schools.com/cssref/css3_pr_box-shadow.asp
+	*/
+	-webkit-box-shadow: 2px 2px 3px 3px rgba(13, 0, 0, 0.60);
+	-moz-box-shadow: 2px 2px 3px 3px rgba(13, 0, 0, 0.60);
+	box-shadow: 2px 2px 3px 3px rgba(13, 0, 0, 0.60);
+}
+.btn:last-child
+{
+	margin-left : 100px;
+}
+/*************End of the contac form rules*******************/
+/*************This section is just for the home page*******************/ 
+/*************hide it in all other pages of the site*******************/
+#page #body div#section{
+	display : none;
+}

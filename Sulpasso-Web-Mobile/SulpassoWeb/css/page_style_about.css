@@ -1,0 +1,33 @@
+#page {
+	width:100%;
+}
+#page #body {
+	width:960px;
+	margin:0 auto;
+	padding-top:9px;
+}
+#background #page #body .featured {
+    height: 900px;
+}
+#background #page #body .featured:after {
+        right : -0.9%;
+}
+#background #page #body .featured:before{
+	z-index : 1;
+}
+#page #body .featured section{
+    width: 945px !important;
+    height: 900px !important;
+    padding: 10px 25px !important;
+    margin : 0 !important;
+}
+#page #body .featured .content {
+    /*background-image : url(../images/pattern2.jpg);*/
+    background-size : 100%;
+}
+.content ul li{
+    list-style-type : none;
+}
+#page #body div#section{
+    display : none;
+}

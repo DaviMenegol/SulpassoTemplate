@@ -1,0 +1,54 @@
+#page-inner 
+{
+    width:100%;
+    margin:10px 20px 0px 0px;
+    background-color:#fff!important;
+    padding:10px;
+    min-height: 535px;
+    max-height: 535px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+ul.nav-pills
+{
+    background: #1da2c9;
+}
+
+ul.nav-pills li a
+{
+    height: 60px;
+	font-weight : bold;
+}
+
+ul.nav-pills li:not(.active) a
+{
+    color: #000000;
+}
+
+.not-menu
+{
+	color : #041487 !important;
+}
+
+/*==============================================
+    MEDIA QUERIES     
+    =============================================*/
+@media(min-width:768px) 
+{
+    #page-wrapper
+    {
+        margin: 0 0 0 0px;
+        padding: 15px 15px;
+        min-height: 575px;
+        max-height: 575px;
+        overflow: auto;
+    }
+
+    .navbar-side 
+    {
+        z-index: 1;
+        position: absolute;
+        width: 260px;
+    }
+}

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="base fonts6">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/SouMaisDelivery/fonts/base fonts/webfontkit-20121120-222917.zip!/" />
+      <root url="jar://$PROJECT_DIR$/SouMaisDelivery/fonts/base fonts/webfontkit-20121120-223425.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Gerador Senha</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="colored.ico" type="image/x-icon" rel="icon">
+
+</head>
+<body>
+
+    
+      
+    <div class="container" >
+        <form id="meuFormulario">
+
+            <div class="tooltip"><label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+                <span class="tooltiptext">Configurador &#8646; Preço</span>
+              </label>
+                
+              </div>
+            
+              <div class="titulo1">
+            <h2>GERADOR SENHA PREÇOS</h2>
+            </div>
+
+            <div class="inputs">
+
+            <label for="chave1">Chave:</label>
+            <input type="text" id="chaveVendedor" name="chave1">
+
+            <select id="inputVendedores" name="vendedores" value="Vendedor" required="">
+            <option value="0">Vendedor</option>
+            </select>
+
+            <!-- Fins de Manutencao -->
+            <input type="text" id="idSupervisor" name="idSupervisor" value="" readonly style="display:none;">
+            <input type="text" id="idEmpresa" name="idEmpresa" value="" readonly style="display:none;">
+            <!-- Fins de Manutencao -->
+            </div>
+            
+            <button id="btn" type="submit" class="btn btn-primary">CALCULAR</button>
+            
+            <div class="outputs">
+
+                <label for="chaveSupervisor">Senha:</label>
+                <input type="text" id="chaveSupervisor" name="chaveSupervisor" readonly >
+            
+                <button id="execCopy" class="btn btn-primary"> COPIAR </button>
+
+            </div>
+
+            <div id="qtdpreco"class="outputs">
+
+                <label for="qtd">Quantidade:</label>
+                <input type="text" id="qtd" name="qtd" readonly>
+
+                <label for="preco">Preço:</label>
+                <input type="text" id="preco" name="preco" readonly>
+
+            </div>
+
+            
+        </form>
+    </div>
+    <table>
+        <tbody>
+        <tr>
+            <th style="text-align: center;">HISTÓRICO DE HOJE</th>
+        </tr>
+    </tbody>
+    </table>
+    <div class="container2">
+        <table class="requisicaoHistorico"></table>
+    </div>
+    
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/identificador.js"></script>
+<script src="js/pequenasFuncoes.js"></script>
+</html>

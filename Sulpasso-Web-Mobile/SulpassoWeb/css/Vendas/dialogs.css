@@ -1,0 +1,283 @@
+/* **************************************** */
+/* **********TELAS DE CARREGAMENTO********* */
+/* **************************************** */
+#load-bar
+{
+    z-index: 10000 !important;
+    position: absolute;
+    left: 50% !important;
+    width: 40% !important;
+    height: 31% !important;
+    background-color: #31b0d5 !important;
+    display: none;
+    padding-top: 3%;
+    top: 31% !important;
+}
+
+/*
+#load-bar
+{
+	z-index: 100;
+    position: absolute;
+    left: 25%;
+    width: 50% !important;
+    height: 50% !important;
+    background-color: #31b0d5 !important;
+    display: none;
+}
+*/
+
+/* **************************************** */
+/* ********FIM TELAS DE CARREGAMENTO******* */
+/* **************************************** */
+
+/* **************************************** */
+/* **********  MANUTENÇÃO DADOS   ********* */
+/* **************************************** */
+.dataReturn
+{
+    z-index: 10000;
+    position: fixed;
+    top: 86.9%;
+    left: 23.6%;
+    width: 72.6%;
+}
+/* **************************************** */
+/* **********FIM MANUTENÇÃO DADOS ********* */
+/* **************************************** */
+
+/* **************************************** */
+/* **********MODAL DIALOG STYLES*********** */
+/* **************************************** */
+.modal-backdrop {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 1040 !important;
+  background-color: #000000 !important;
+}
+
+.modal-backdrop.fade {
+  opacity: 0 !important;
+}
+
+.modal-backdrop,
+.modal-backdrop.fade.in {
+  opacity: 0.8 !important;
+  filter: alpha(opacity=80) !important;
+}
+
+.modal {
+  position: fixed !important;
+  top: 25% !important;
+  left: 50% !important;
+  z-index: 1050 !important;
+  width: 560px !important;
+  height: 425px !important;
+  margin-left: -280px !important;
+  background-color: #ffffff !important;
+  border: 1px solid #999 !important;
+  border: 1px solid rgba(0, 0, 0, 0.3) !important;
+  *border: 1px solid #999 !important;
+  -webkit-border-radius: 6px !important;
+     -moz-border-radius: 6px !important;
+          border-radius: 6px !important;
+  outline: none !important;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3) !important;
+     -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3) !important;
+          box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3) !important;
+  -webkit-background-clip: padding-box !important;
+     -moz-background-clip: padding-box !important;
+          background-clip: padding-box !important;
+   padding : 1%;
+}
+
+.modal.fade {
+  top: -25% !important;
+  -webkit-transition: opacity 0.3s linear, top 0.3s ease-out !important;
+     -moz-transition: opacity 0.3s linear, top 0.3s ease-out !important;
+       -o-transition: opacity 0.3s linear, top 0.3s ease-out !important;
+          transition: opacity 0.3s linear, top 0.3s ease-out !important;
+}
+
+.modal.fade.in {
+  top: 10% !important;
+}
+
+.modal-header {
+  padding: 9px 15px !important;
+  border-bottom: 1px solid #eee !important;
+  background-color: #49afcd !important;
+}
+
+.modal-header .close {
+  margin-top: 2px !important;
+}
+
+.modal-header h3 {
+  margin: 0 !important;
+  line-height: 30px !important;
+  color: #ffffff !important;
+}
+
+.modal-body {
+  position: relative !important;
+  max-height: 80% !important;
+  padding: 15px !important;
+  overflow-y: auto !important;
+  background-color: #f9f9f9 !important;
+}
+
+.modal-form {
+  margin-bottom: 0 !important;
+}
+
+.modal-footer {
+  padding: 14px 15px 15px !important;
+  margin-bottom: 0 !important;
+  text-align: right !important;
+  background-color: #49afcd !important;
+  border-top: 1px solid #ddd !important;
+  -webkit-border-radius: 0 0 6px 6px !important;
+     -moz-border-radius: 0 0 6px 6px !important;
+          border-radius: 0 0 6px 6px !important;
+  *zoom: 1 !important;
+  -webkit-box-shadow: inset 0 1px 0 #ffffff !important;
+     -moz-box-shadow: inset 0 1px 0 #ffffff !important;
+          box-shadow: inset 0 1px 0 #ffffff !important;
+}
+
+.modal-footer:before,
+.modal-footer:after {
+  display: table !important;
+  line-height: 0 !important;
+  content: "" !important;
+}
+
+.modal-footer:after {
+  clear: both !important;
+}
+
+.modal-footer .btn + .btn {
+  margin-bottom: 0 !important;
+  margin-left: 5px !important;
+}
+
+.modal-footer .btn-group .btn + .btn {
+  margin-left: -1px !important;
+}
+
+.modal-footer .btn-block + .btn-block {
+  margin-left: 0 !important;
+}
+
+.manager
+{
+  width: 75% !important;
+  height: 86% !important;
+  top: 25% !important;
+  left: 43% !important;
+  top: 12% !important;
+}
+
+.max
+{
+    height: 80%;
+    overflow: hidden !important;
+}
+
+.max>.container-fluid
+{
+    height: 100%;
+}
+
+.container-fluid .tab-content[data-ng-app]
+{
+    height: 94%;
+}
+
+.container-fluid .tab-content[data-ng-app] .tab-pane
+{    
+    height: 100%;
+    overflow: hidden;
+}
+
+.container-fluid .tab-content[data-ng-app] .tab-pane
+{    
+    height: 100%;
+    overflow: hidden;
+}
+
+.table-container
+{
+    height: 65%;
+    width: 101.5%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.table-container-delete
+{
+    height: 85%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+/* **************************************** */
+/* **********MODAL DIALOG STYLES*********** */
+/* **************************************** */
+
+/* **************************************** */
+/* ********** DICAS DE FERAMENTA ********** */
+/* **************************************** */
+.tollTipe 
+{
+    position: fixed !important;
+    top: 15.5% !important;
+    z-index: 1050 !important;
+    outline: none !important;
+    -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3) !important;
+    -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3) !important;
+    -webkit-background-clip: padding-box !important;
+    -moz-background-clip: padding-box !important;
+    background-clip: padding-box !important;
+    width: 40%;
+    margin-left: 5%;
+    text-align: center;
+    text-transform: uppercase;
+    display: none;
+    right: 17%;
+    height: 5%;
+    padding: 5px;
+}
+
+#tooltip 
+{
+    content: attr(title);
+    padding: 4px 8px;
+    color: #FFFFFF;
+    position: absolute;
+    text-transform: uppercase; 
+    left: 0;
+    top: 100%;
+    white-space: nowrap;
+    z-index: 20000;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0px 0px 4px #222;
+    -webkit-box-shadow: 0px 0px 4px #222;
+    box-shadow: 0px 0px 4px #222;
+    
+    background-image: -moz-linear-gradient(top, #31b0d5, #1da2c9);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #31b0d5),color-stop(1, #1da2c9));
+    background-image: -webkit-linear-gradient(top, #31b0d5, #1da2c9);
+    background-image: -moz-linear-gradient(top, #31b0d5, #1da2c9);
+    background-image: -ms-linear-gradient(top, #31b0d5, #1da2c9);
+    background-image: -o-linear-gradient(top, #31b0d5, #1da2c9);   
+}
+/* **************************************** */
+/* **********FIM DICAS DE FERAMENTA******** */
+/* **************************************** */

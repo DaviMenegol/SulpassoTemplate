@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <base href="../">
+
+    <title>Administra&ccedil;&atilde;o</title>
+
+    <link href="images/Vendas/btn.png" type="image/x-icon" rel="icon">
+    <!--
+    <link href="https://www.diprohl.com.br/favicon.ico?v1" type="image/x-icon" rel="icon">
+    -->
+    <!-- Bootstrap core CSS -->
+    <link href="css/libraries/bootstrap.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/libraries/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <!-- FONTAWESOME STYLES-->
+    <link href="css/libraries/font-awesome.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- JQUERY FORM SCRIPTS -->
+    <script src="https://malsup.github.io/jquery.form.js"></script>
+    <!-- ANGULAR JS -->
+    <script src="JS/libraries/angular.min.js"></script>
+    <!-- ANGULAR JS TABLE -->
+    <script src="JS/libraries/angular-table.js"></script>
+    <!-- TEXT FIELD MASK -->
+    <script src="JS/libraries/jquery.maskedinput.min.js"></script>
+    <!-- Verificar Sess�o -->
+    <script src="JS/Vendas/VerificarSessao.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    </button>
+                    <!--
+                    <a class="navbar-brand" href="#"> <img src = "https://diprohl.com.br/images/logo.png"/> </a>
+                    -->
+                    <a class="navbar-brand" href="#"> <img style="width: auto;height: 30px;" src="images/Vendas/SPBranco3.png" /> </a>
+                    <span class="logout-spn" style="position: relative; right: 0px;"> <a href="Server/Vendas/Logout.php" style="color:#ffffff;">SAIR</a> </span>
+                </div>
+
+                
+            </div>
+        </div>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav nav-stacked left-menu" id="main-menu">
+                    <li data-module=''><a data-target="#first" data-toggle="collapse" data-parent="#main-menu"><i class="fa fa-users"></i>Cadastro</a>
+                        <ul class="nav nav-stacked collapse left-submenu" id="first">
+                            <li><a id="cadastroUsuarios">Usu&aacute;rios</a></li>
+                        </ul>
+                    </li>
+                    <li data-module=''><a data-target="#second" data-toggle="collapse" data-parent="#main-menu"><i class="fa fa-sliders"></i>Configurador</a>
+                        <ul class="nav nav-stacked collapse left-submenu" id="second">
+                            <li data-module=''><a id="configurarPerfil" title="Nova Função!">Perfil</a></li>
+                            <li data-module=''><a id="configurarUsuario">Usu&aacute;rio</a></li>
+                            <li data-module=''><a id="configurarEmpresa">Dados Empresa</a></li>
+                            <li data-module=''><a id="configurarVendas">Vendas</a></li>
+                            <li data-module=''><a id="configurarTelas">Telas</a></li>
+                            <li data-module=''><a id="configurarHorarios">Horarios</a></li>
+                            <li data-module=''><a id="configurarConexao">Conex&atilde;o</a></li>
+                            <li data-module='' class='ocultarItem'><a id="configurarGrupos">Grupos</a></li>
+                            <li data-module=''><a id="disponibilizarConfiguracao">Disponibilizar Configura&ccedil;&otilde;es</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a title="Nova Função" data-toggle="collapse" data-parent="#main-menu" id="GerarChave"><i class="fa fa-key"></i>Gerar Chave</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row" style="display:none;height: 80px;">
+                    <div class="col-lg-12" id="avisosSistema" >
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+                <hr>
+
+                <div id="cadastrar-usuarios" class="ocultar">
+                    <h3>
+                        Criar Usu&aacute;rio
+                        <i class="fa fa-users close" aria-hidden="true" title="Click para ver os usu&aacute;rios cadastrados" ng-click="exibirUsuarios(); $event.stopPropagation();">
+                        </i>
+                    </h3>
+                    <form>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>C&oacute;digo</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="codigoUsuarioCadastrar" type="text" class="form-control" title="C&oacute;digo do usu&aacute;rio a ser criado">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Nome</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="nomeUsuarioCadastrar" type="text" class="form-control" title="Nome completo do usu&aacute;rio (pra mais f&aacute;cil identifica&ccedil;&atilde;o.">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Login</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="aliasUsuarioCadastrar" type="text" class="form-control" title="Identifica&ccedil;&atilde;o de acesso ao sistema">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Senha</h4>
+                            </label>
+                            <div class="col-sm-8" style="display: flex;" id="show_hide_password">
+                                <input id="senhaUsuarioCadastrar" type="password" class="form-control" title="Senha de acesso ao sistema">
+                                    <div class="input-group-addon" style="display: flex; justify-content: center;">
+                                      <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Tipo</h4>
+                            </label>
+                            <div class="col-sm-8">
+
+                                <select id="tipoUsuarioCadastrar" class="selectpicker form-control" data-live-search="true" title="Tipo do usuário">
+                                    <option data-subtext="Apenas funções administrativas" value = "0">Administrador</option>
+                                    <option data-subtext="Apenas funções de vendas" value = "1">Vendedor</option>
+                                    <option data-subtext="Todas as funcionalidades disponíveis" value = "2">Administrador Vendedor</option>
+                                </select>
+
+                            </div>                            
+                        </div>
+                        <div class="row no-border">
+                        <div class="col-sm-1">
+                            <br>
+                            <input id="usuarioCadastrar" name="theFile" type="button" value="Salvar" title="Acrescentar novo usu&aacute;rio" class="btn btn-primary" /><br/><br/>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.CRIAR USU�RIO -->
+                	
+                <div id="configurar-usuarios" class="ocultar">
+                    <h3>
+                        Usu&aacute;rios
+                    </h3>
+                    <form>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Selecione</h4>
+                            </label>
+                            <div class="col-sm-8" id="lista-usuarios">
+                                <!-- Data inserted from JS -->
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Codigo</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="CodigoUser" type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Nome</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="NomeUser" type="text" class="form-control" title="Edite o nome do Usuário" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Login</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="LoginUser" type="text" class="form-control" title="Edite o login do Usuário" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Senha</h4>
+                            </label>
+                            <div class="col-sm-8" style="display: flex;">
+                                <input id="SenhaUser" type="text" class="form-control" title="Edite a senha do Usuário" autocomplete="off">
+        
+                            </div>
+                        </div>
+
+                        <div class="row no-border">
+                            <div class="col-sm-1">
+                                <br>
+                                <input id="DadosUser" type="button" value="Salvar" title="Salvar nova identifica&ccedil;&atilde;o do usu&aacute;rio" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Tipo Flex</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" class = "radioCheckConfig" name="radioTipoFlexConfigurar" value="0" autocomplete="off">Contribui&ccedil;&atilde;o
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" class = "radioCheckConfig" name="radioTipoFlexConfigurar" value="1" autocomplete="off">Flex
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Valor Flex</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="valorFlexConfigurar" type="number" step="0.01" min="0" max="100" class="form-control" title="Quando Saldo">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Pedido Minimo</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="pedidoMinimoConfigurar" type="number" step="0.01" min="0" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Desconto Item</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="descontoItemConfigurar" type="number" step="0.01" min="0" max="99" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Desconto Pedido</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="descontoPedidoConfigurar" type="number" step="0.01" min="0" max="99" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Contribui&ccedil;&atilde;o Ideal</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="contribuicaoIdealConfigurar" type="number" step="0.01" min="0" max="99" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Tabela Minimo</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="tabelaMinimoConfigurar" type="number" step="1" min="0" max="99" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Tabela Troca</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="tabelaTrocaConfigurar" type="number" step="1" min="0" max="99" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Roteiro</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="roteiroConfigurar" type="number" step="1" min="0" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Tipo Ordena&ccedil;&atilde;o</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="radioTipoOrdenacaoConfigurar" value="0" autocomplete="off">Alfabetica
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="radioTipoOrdenacaoConfigurar" value="1" autocomplete="off">Grupo
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Tipo Busca</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="radioTipoBuscaConfigurar" value="0" autocomplete="off">Referencia
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="radioTipoBuscaConfigurar" value="1" autocomplete="off">Descri&ccedil;&atilde;o Inicio
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="radioTipoBuscaConfigurar" value="2" autocomplete="off">Descri&ccedil;&atilde;o Qualquer
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border ocultarItem">
+                            <label class="col-sm-2">
+                                <h4>Saldo</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="saldoConfigurar" type="number" step="0.1" min="0" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border ocultarItem">
+                            <label class="col-sm-2">
+                                <h4>Comiss&atilde;o</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="comissaoConfigurar" type="number" step="0.01" min="0" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border ocultarItem">
+                            <label class="col-sm-2">
+                                <h4>Contribui&ccedil;&atilde;0</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="contribuicaoConfigurar" type="number" step="0.01" min="0" max="100" class="form-control">
+                            </div>
+                            <div class="col-sm-1">
+                                <input id="usuarioConfigurarOculto" type="button" value="Salvar" title="Salvar nova configura&ccedil;&atilde;o de usu&aacute;rio" class="btn btn-primary" /><br/><br/>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <div class="col-sm-1">
+                                <br>
+                                <input id="usuarioConfigurar" type="button" value="Salvar" title="Salvar nova configura&ccedil;&atilde;o de usu&aacute;rio" class="btn btn-primary" /><br/><br/>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- /.CONFIGURAR USU�RIO -->
+
+                <!-- Perfil VV -->
+                <div id="configurar-perfil" class="ocultar">
+                    <h3>
+                        Perfil
+                    </h3>
+                    <form>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Codigo</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="CodigoPerfil" type="text" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Nome</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="NomePerfil" type="text" class="form-control" title="Edite o nome do seu Perfil">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Login</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="LoginPerfil" type="text" class="form-control" title="Edite o Login do seu Perfil">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Senha</h4>
+                            </label>
+                            <div class="col-sm-8" style="display: flex;" id="show_hide_password">
+                                <input id="SenhaPerfil" type="password" class="form-control" title="Edite a Senha do seu Perfil">
+                                    <div class="input-group-addon" style="display: flex; justify-content: center;">
+                                      <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="row no-border">
+                            <div class="col-sm-1">
+                                <br>
+                                <input id="DadosPerfil" type="button" value="Salvar" title="Salvar nova identifica&ccedil;&atilde;o do usu&aacute;rio" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        <hr>
+
+                        
+
+                    </form>
+                </div>
+                <!-- PERFIL ^^ -->
+                <div id="configurar-dados-empresa" class="ocultar">
+                    <h3>
+                        Configurar Dados Empresa
+                    </h3>
+                    <form>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4></h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <!-- Data inserted from JS -->
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Nome Fatasia</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="nomeEmpresaConfigurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Endere&ccedil;o</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="enderecoEmpresaConfigurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Telefone</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="telefoneEmpresaConfigurar" type="fone" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Cidade</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="cidadeEmpresaConfigurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>E-Mail</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="emailEmpresaConfigurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Site</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="siteEmpresaConfigurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Login</h4>
+                            </label>
+
+                            <div class="col-sm-8">
+                                <select id="controleAcessoConfigurar" class="selectpicker form-control" data-live-search="true" title="O sistema de vendas deve solicitar ao usuário os dados de acesso?">
+                                    <option data-subtext="Sem solicitar dados">Automatico</option>
+                                    <option data-subtext="Solicita usuário e senha">Restrito</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <div class="col-sm-1">
+                                <br>
+                                <input id="empresaConfigurar" type="button" value="Salvar" title="Salvar nova configura&ccedil;&atilde;o de empresa" class="btn btn-primary" /><br/><br/>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- /.CONFIGURAR EMPRESA -->
+
+                <div id="configurar-venda" class="ocultar">
+                    <h3>
+                        Informa&ccedil;&otilde;es de Venda
+                    </h3>
+                    <form>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Selecione</h4>
+                            </label>
+                            <div class="col-sm-8" id="lista-usuarios-venda">
+                                <!-- Data inserted from JS -->
+                            </div>
+                        </div>
+                        <hr>
+                        
+                        <div class="row no-border">
+                            <label class="col-sm-3">
+                                <h4>Gerenciar Visitas</h4>
+                            </label>
+                            <div class="col-sm-7">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="visitasConfigurar" value="1" autocomplete="off">Sim
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="visitasConfigurar" value="0" autocomplete="off">N&atilde;o
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-3">
+                                <h4>Vender Devedores</h4>
+                            </label>
+                            <div class="col-sm-7">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="devedoresConfigurar" value="1" autocomplete="off">Sim
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="devedoresConfigurar" value="0" autocomplete="off">N&atilde;o
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-3">
+                                <h4>Alterar Natureza</h4>
+                            </label>
+                            <div class="col-sm-7">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="checkbox" id="naturezaInicioConfigurar" value="1" autocomplete="off">Inicio
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="checkbox" id="naturezaFimConfigurar" value="1" autocomplete="off">Final
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-3">
+                                <h4>Alterar Prazo</h4>
+                            </label>
+                            <div class="col-sm-7">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="checkbox" id="prazoInicioConfigurar" value="1" autocomplete="off">Inicio
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="checkbox" id="prazoFimConfigurar" value="1" autocomplete="off">Final
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-3">
+                                <h4>Recalcular Pre&ccedil;os</h4>
+                            </label>
+                            <div class="col-sm-7">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="recalcularConfigurar" value="1" autocomplete="off">Sim
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="recalcularConfigurar" value="0" autocomplete="off">N&atilde;o
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-3">
+                                <h4>Alterar Pre&ccedil;os</h4>
+                            </label>
+                            <div class="col-sm-7">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="altPrecosConfigurar" value="1" autocomplete="off">Sim
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="altPrecosConfigurar" value="0" autocomplete="off">N&atilde;o
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border ocultarItem">
+                            <label class="col-sm-3">
+                                <h4>Limite Cr&eacute;dito</h4>
+                            </label>
+                            <div class="col-sm-7">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="limiteConfigurar" value="1" autocomplete="off">Sim
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="limiteConfigurar" value="0" autocomplete="off">N&atilde;o
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border ocultarItem">
+                            <label class="col-sm-3">
+                                <h4>Tipo Flex</h4>
+                            </label>
+                            <div class="col-sm-7">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="flexConfigurar" value="1" autocomplete="off">Geral
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="flexConfigurar" value="0" autocomplete="off">Cliente
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-3">
+                                <h4>Mostrar Flex</h4>
+                            </label>
+                            <div class="col-sm-7">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="checkbox" id="flexVendaConfigurar" value="1" autocomplete="off">Venda
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="checkbox" id="flexItemConfigurar" value="1" autocomplete="off">Item
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border ocultarItem">
+                            <label class="col-sm-3">
+                                <h4>Controla Estoque</h4>
+                            </label>
+                            <div class="col-sm-7">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="estoqueConfigurar" value="1" autocomplete="off">Sim
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="estoqueConfigurar" value="0" autocomplete="off">N&atilde;o
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-3">
+                                <h4>Desconto Grupo</h4>
+                            </label>
+                            <div class="col-sm-7">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="campanhasConfigurar" value="1" autocomplete="off">Sim
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="campanhasConfigurar" value="0" autocomplete="off">N&atilde;o
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border ocultarItem">
+                            <label class="col-sm-3">
+                                <h4>Frete</h4>
+                            </label>
+                            <div class="col-sm-7">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="freteConfigurar" value="1" autocomplete="off">Sim
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="freteConfigurar" value="0" autocomplete="off">N&atilde;o
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-3">
+                                <h4>Solicita Senha</h4>
+                            </label>
+                            <div class="col-sm-7">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="senhaConfigurar" value="1" autocomplete="off">Sim
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="senhaConfigurar" value="0" autocomplete="off">N&atilde;o
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-3">
+                                <h4>Especial Altera Valor Para</h4>
+                            </label>
+                            <div class="row no-border">
+                                <div class="col-sm-7">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="radioCheckConfig btn btn-primary">
+                                            <input type="checkbox" id="especialConfigurarH" value="1" autocomplete="off" data-js = "confg" class = "checkConfig" name="especialConfigurar" autocomplete="off">
+                                            Maior
+                                        </label>
+
+                                        <label class="radioCheckConfig btn btn-primary">
+                                            <input type="checkbox" id="especialConfigurarL" value="0" autocomplete="off" data-js = "confg" class = "checkConfig" name="especialConfigurar" >
+                                            Menor
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-3">
+                                <h4>Minimo Prazo</h4>
+                            </label>
+                            <div class="col-sm-7">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="mpConfigurar" value="1" autocomplete="off">Sim
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="mpConfigurar" value="0" autocomplete="off">N&atilde;o
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-3">
+                                <h4>Controla GPS</h4>
+                            </label>
+                            <div class="col-sm-7">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="gpsConfigurar" value="1" autocomplete="off">Sim
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="gpsConfigurar" value="0" autocomplete="off">N&atilde;o
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-3">
+                                <h4>Desconto Percentual</h4>
+                            </label>
+                            <div class="col-sm-7">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="percentualConfigurar" value="1" autocomplete="off">Sim
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="percentualConfigurar" value="0" autocomplete="off">N&atilde;o
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-3">
+                                <h4>Itens Diferentes</h4>
+                            </label>
+                            <div class="col-sm-7">
+                                <input id="itensDiferentesConfigurar" type="number" step="1" min="1" max="1000000" class="form-control">
+                            </div>
+                        </div>
+                        <!-- iNATIVO! -->
+                        <div class="row no-border ocultarItem"> 
+                            <label class="col-sm-2">
+                                <h4>Validade</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="validadeConfigurar" type="text" class="form-control">
+                            </div>
+                            <div class="col-sm-1">
+                                <input id="vendasConfigurarOculto" type="button" value="Salvar" title="Salvar nova configura&ccedil;&atilde;o de usu&aacute;rio" class="btn btn-primary" /><br/><br/>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <div class="col-sm-1">
+                                <br>
+                                <input id="vendasConfigurar" type="button" value="Salvar" title="Salvar nova configura&ccedil;&atilde;o de usu&aacute;rio" class="btn btn-primary" /><br/><br/>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- /.CONFIGURAR VENDAS -->
+
+                <div id="configurar-telas" class="ocultar">
+                    <h3>
+                        Telas do Sistema
+                    </h3>
+                    <form>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Selecione</h4>
+                            </label>
+                            <div class="col-sm-8" id="lista-usuarios-tela">
+                                <!-- Data inserted from JS -->
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Efetua Trocas</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="trocasConfigurar" value="0" autocomplete="off">Sim
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="trocasConfigurar" value="1" autocomplete="off">N&atilde;o
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Venda Direta</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="diretasConfigurar" value="0" autocomplete="off">Sim
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="diretasConfigurar" value="1" autocomplete="off">N&atilde;o
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ocultos -->
+                        <div class="row no-border ocultarItem">
+                            <label class="col-sm-2">
+                                <h4>Mix Ideal</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="mixConfigurar" value="0" autocomplete="off">Sim
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="mixConfigurar" value="1" autocomplete="off">N&atilde;o
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border ocultarItem">
+                            <label class="col-sm-2">
+                                <h4>Mostra Meta</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="metaConfigurar" value="0" autocomplete="off">Sim
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="metaConfigurar" value="1" autocomplete="off">N&atilde;o
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ocultos -->
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Cadastro de Clientes</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="cadastroConfigurar" value="0" autocomplete="off">Obrigat&oacute;rio
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="cadastroConfigurar" value="1" autocomplete="off">N&atilde;o Obrigat&oacute;rio
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border ocultarItem">
+                            <label class="col-sm-2">
+                                <h4>C&aacute;lculo Resumo</h4> 
+                            </label>
+                            <div class="col-sm-8">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="focoConfigurar" value="0" autocomplete="off">Peso
+                                    </label>
+                                    <label class="radioCheckConfig btn btn-primary">
+                                        <input type="radio" name="focoConfigurar" value="1" autocomplete="off">Unidade
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Pesquisa Pedidos</h4>
+                            </label>
+                            <div class="col-sm-8">
+
+                                <select id="pesqPedConfigurar" class="selectpicker form-control" data-live-search="true" title="Tela inicial da consulta de pedidos">
+                                    <option value = "0">Todos</option>
+                                    <option value = "1">Enviados</option>
+                                    <option value = "2">Não Enviados</option>
+                                    <option value = "3">Resumo</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Pesquisa Itens</h4>
+                            </label>
+
+                            <div class="col-sm-8">
+
+                                <select id="pesqItensConfigurar" class="selectpicker form-control" data-live-search="true" title="Tela inicial da consulta de itens">
+                                    <option value = "0">Produtos</option>
+                                    <option value = "1">Produtos Foco</option>
+                                    <option value = "2">Kits</option>
+                                    <option value = "3">Promoções</option>
+                                    <option value = "4">Campanhas Produtos</option>
+                                    <option value = "5">Campanhas Grupos</option>
+                                    <option value = "6">Preços Minimos</option>
+                                    <option value = "7">Gravosos</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Pesquisa Clientes</h4>
+                            </label>
+
+                            <div class="col-sm-8">
+
+                                <select id="pesqCliConfigurar" class="selectpicker form-control" data-live-search="true" title="Tela inicial da consulta de clientes">
+                                    <option value = "0">Positivação</option>
+                                    <option value = "1">Curva ABC</option>
+                                    <option value = "2">Titulos Abertos</option>
+                                    <option value = "3">Devoluções</option>
+                                    <option value = "4">Cortes</option>
+                                    <option value = "5">Pre Pedidos</option>
+                                    <option value = "6">Aniversários</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Pesquisa Gerencial</h4>
+                            </label>
+
+                            <div class="col-sm-8">
+
+                                <select id="pesqGeralConfigurar" class="selectpicker form-control" data-live-search="true" title="Tela inicial da consulta gerencial">
+                                    <option value = "0">Mensagens</option>
+                                    <option value = "1">Metas</option>
+                                    <option value = "2">Gráficos</option>
+                                    <option value = "3">Plano Visitas</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Tela Inicial</h4>
+                            </label>
+
+                            <div class="col-sm-8">
+
+                                <select id="telainicialConfigurar" class="selectpicker form-control" data-live-search="true" title="Área central da tela inicial do sistema">
+                                    <option value = "0">Produtos</option>
+                                    <option value = "1">Produtos Foco</option>
+                                    <option value = "2">Kits</option>
+                                    <option value = "3">Promoções</option>
+                                    <option value = "4">Campanhas Produtos</option>
+                                    <option value = "5">Campanhas Grupos</option>
+                                    <option value = "6">Preços Minimos</option>
+                                    <option value = "7">Gravosos</option>
+                                    <option value = "8">Positivação</option>
+                                    <option value = "9">Curva ABC</option>
+                                    <option value = "10">Titulos Abertos</option>
+                                    <option value = "11">Devoluções</option>
+                                    <option value = "12">Cortes</option>
+                                    <option value = "13">Pre Pedidos</option>
+                                    <option value = "14">Aniversários</option>
+                                    <option value = "15">Mensagens</option>
+                                    <option value = "16">Metas</option>
+                                    <option value = "17">Gráficos</option>
+                                    <option value = "18">Plano Visitas</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <div class="col-sm-1">
+                                <br>
+                                <input id="telasConfigurar" type="button" value="Salvar" title="Salvar nova configura&ccedil;&atilde;o de usu&aacute;rio" class="btn btn-primary" /><br/><br/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.CONFIGURAR TELAS -->
+
+                <div id="configurar-horarios" class="ocultar">
+                    <h3>
+                        Hor&aacute;rios e Tempo
+                    </h3>
+                    <form>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Selecione</h4>
+                            </label>
+                            <div class="col-sm-8" id="lista-usuarios-horario">
+                                <!-- Data inserted from JS -->
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Inicio Manh&atilde;</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="inicioManhaConfigurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Final Manh&atilde;</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="fimManhaConfigurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Inicio Tarde</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="inicioTardeConfigurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Final Tarde</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="fimTardeConfigurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Armazenar Pedidos</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="tempoPedidosConfigurar" type="number" step="1" min="0" max="1" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Armazenar Clientes</h4> 
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="tempoClientesConfigurar" type="number" step="1" min="0" max="1" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>M&aacute;ximo de Unidades</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="unidadesConfigurar" type="number" step="1" min="0" max="1" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Sequencia Pedidos</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="pedidosConfigurar" type="number" step="1" min="0" max="1" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Sequencia Clientes</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="clientesConfigurar" type="number" step="1" min="0" max="1" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Sequencia Atualiza&ccedil;&atilde;o</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="atualizacaoConfigurar" type="number" step="1" min="0" max="1" class="form-control">
+                            </div> 
+                        </div>
+                        <div class="row no-border">
+                            <div class="col-sm-1">
+                                <br>
+                                <input id="horariosConfigurar" type="button" value="Salvar" title="Salvar nova configura&ccedil;&atilde;o de usu&aacute;rio" class="btn btn-primary" /><br/><br/>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- /.CONFIGURAR HORARIOS -->
+
+                <div id="configurar-conexao" class="ocultar">
+                    <h3>
+                        Conex&atilde;o Servidor
+                    </h3>
+                    <form>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Selecione</h4>
+                            </label>
+                            <div class="col-sm-8" id="lista-usuarios-conexao">
+                                <!-- Data inserted from JS -->
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Servidor 1</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="servidor1Configurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Servidor 2</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="servidor2Configurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Servidor 3</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="servidor3Configurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Usu&aacute;rio</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="usuarioServidorConfigurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Senha</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="senhaServidorConfigurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Enviar</h4> 
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="enviarConfigurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Receber</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="receberConfigurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border ocultarItem">
+                            <label class="col-sm-2">
+                                <h4>Rementente Email</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="emailConfigurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border ocultarItem">
+                            <label class="col-sm-2">
+                                <h4>Senha Email</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="emailSenhaConfigurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border ocultarItem">
+                            <label class="col-sm-2">
+                                <h4>Destinat&aacute;rio 1</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="destinatario1Configurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border ocultarItem">
+                            <label class="col-sm-2">
+                                <h4>Destinat&aacute;rio 2</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="destinatario2Configurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border ocultarItem">
+                            <label class="col-sm-2">
+                                <h4>Destinat&aacute;rio 3</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="destinatario3Configurar" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Tipo de Conex&atilde;o</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="tipoConexaoConfigurar" type="number" step="1" min="0" max="1" class="form-control">
+                            </div>
+                            
+                        </div>
+                        <div class="row no-border">
+                            <div class="col-sm-1">
+                                <br>
+                                <input id="conexaoConfigurar" type="button" value="Salvar" title="Salvar nova configura&ccedil;&atilde;o de usu&aacute;rio" class="btn btn-primary" /><br/><br/>
+                            </div>
+                        </div>
+                        <!-- OCULTO -->
+                        <div class="row no-border ocultarItem">
+                            <div class="col-sm-1">
+                                <input id="conexaoConfigurarOculto" type="button" value="Salvar" title="Salvar nova configura&ccedil;&atilde;o de usu&aacute;rio" class="btn btn-primary" /><br/><br/>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- /.CONFIGURAR CONEX�O -->
+
+                <div id="configurar-resumo" class="ocultar">
+                    <h3>
+                        Grupos de controle (Resumo Dia)
+                    </h3>
+                    <form>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Selecione</h4>
+                            </label>
+                            <div class="col-sm-8" id="lista-usuarios-conexao">
+                                <!-- Data inserted from JS -->
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Servidor 1</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="serserser" type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Tipo de Conex&atilde;o</h4>
+                            </label>
+                            <div class="col-sm-8">
+                                <input id="resresres" type="number" step="1" min="0" max="1" class="form-control">
+                            </div>
+                            <div class="col-sm-1">
+                                <input id="conconcon" type="button" value="Salvar" title="Salvar nova configura&ccedil;&atilde;o de usu&aacute;rio" class="btn btn-primary" /><br/><br/>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- /.CONFIGURAR RESUMO DO DIA -->
+
+                <div id="disponibilizar-configuracao" class="ocultar">
+                    <h3>
+                        Disponibilizar Configura&ccedil;&otilde;s
+                    </h3>
+                    <form>
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Vendedor</h4>
+                            </label>
+                            <div class="col-sm-8" id="lista-usuarios-configuracao">
+                                <!-- Data inserted from JS -->
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row no-border">
+                            <label class="col-sm-2">
+                                <h4>Selecione as configura&ccedil;&otilde;es para disponibilizar</h4>
+                            </label>
+                        </div>
+                        <div class="row no-border">
+                            <div class="container">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-primary checkbox-inline">
+                                        <input data-js = "confg" class = "checkConfig" type="checkbox" name="checkSendConfigConf" value="0" autocomplete="off">
+                                        TELAS
+                                    </label>
+                                </div>
+
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-primary checkbox-inline">
+                                        <input data-js = "confg" class = "checkConfig" type="checkbox" name="checkSendConfigConf" value="1" autocomplete="off">
+                                        HORARIOS
+                                    </label>
+                                </div>
+
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-primary checkbox-inline">
+                                        <input data-js = "confg" class = "checkConfig" type="checkbox" name="checkSendConfigConf" value="2" autocomplete="off">
+                                        USU&Aacute;RIOS
+                                    </label>
+                                </div>
+
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-primary checkbox-inline">
+                                        <input data-js = "confg" class = "checkConfig" type="checkbox" name="checkSendConfigConf" value="3" autocomplete="off">
+                                        VENDAS
+                                    </label>
+                                </div>
+
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-primary checkbox-inline">
+                                        <input data-js = "confg" class = "checkConfig" type="checkbox" name="checkSendConfigConf" value="4" autocomplete="off">
+                                        EMPRESA
+                                    </label>
+                                </div>
+
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-primary checkbox-inline">
+                                        <input data-js = "confg" class = "checkConfig" type="checkbox" name="checkSendConfigConf" value="5" autocomplete="off">
+                                        CONEX&Atilde;O
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row no-border">
+                            <div class="col-sm-1">
+                                <input id="btnDisponibilizarConfiguracao" type="button" value="DISPONIBILIZAR" title="Disponibilizar configura&ccedil;&atilde;o de usu&aacute;rio" class="btn btn-primary" /><br/><br/>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- /.DISPONIBILIZA CONFIGURA��O -->
+
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+        <div class="footer">
+            <div class="row">
+                <div class="col-lg-12">
+                    &copy; 2024 sulpasso.com.br | Developed by <a target="_blank">Sulpasso Software</a>
+                </div>
+            </div>
+        </div>
+        <!-- /. FOOTERT  -->
+    </div>
+    <!-- /. WRAPPER  -->
+
+
+    <!-- CUSTOM STYLES-->
+    <link href="css/Vendas/custom.css" rel="stylesheet" />
+    <link href="css/Vendas/dialogs.css" rel="stylesheet" />
+
+    <!-- CUSTOM STYLES-->
+    <script src="JS/Vendas/MainTamplate.js"></script>
+    <script src="JS/Vendas/GerenciadorDados.js"></script>
+    <script src="JS/Vendas/Configurador.js"></script>
+</body>
+
+</html>

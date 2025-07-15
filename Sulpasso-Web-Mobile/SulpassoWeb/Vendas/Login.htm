@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <base href="../">
+
+    <title>Acesso Clientes</title>
+
+    <link href="images/Vendas/btn.png" type="image/x-icon" rel="icon">
+    <!-- Bootstrap core CSS -->
+    <link href="css/libraries/bootstrap.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/libraries/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="JS/libraries/jquery.maskedinput.min.js"></script>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="JS/libraries/ie-emulation-modes-warning.js"></script>
+    <script src="JS/libraries/ie10-viewport-bug-workaround.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- <form class="form-signin" method="POST" action="../server/controlers/login.php"> action="Clients/GerenciadorDados.html"-->
+        <form id="form-signin" class="form-signin" method="POST">
+            <h2 class="form-signin-heading">Efetue login</h2>
+            <label for="inputUser" class="sr-only">USUÁRIO</label>
+            <input id="inputUser" name="user" class="form-control" placeholder="Digite o usuário" required="" autofocus="" type="text">
+            <label for="inputPassword" class="sr-only">SENHA</label>
+            <input id="inputPassword" name="pswd" class="form-control" placeholder="Digite a senha" required="" type="password">
+            <select id="inputEmpresa" name="empresa" class="form-control" placeholder="Empresa" required="">
+            <option value="-">Escolha a empresa</option>
+        </select>
+
+         <!-- davi -->
+         <label for="salvarSenha" style="margin: 8px; font-size: 1em;" title="Lembrar Usuário e Empresa">Lembrar - me</a></label>
+         <input type="checkbox" id="salvarSenha" style="margin: 8px;vertical-align: middle;">
+         <!-- davi -->
+
+            <br />
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+        </form>
+
+    </div>
+    <!-- /container -->
+
+    <link href="css/Vendas/signin.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/Vendas/main_tamplate.css">
+    <!-- davi -->
+    <link rel="stylesheet" type="text/css" href="css/Vendas/dialogs.css">
+    <!-- davi -->
+    <script src="JS/Vendas/MainTamplate.js"></script>
+    <script src="JS/Vendas/Login.js"></script>
+</body>
+
+</html>

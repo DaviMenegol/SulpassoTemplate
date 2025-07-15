@@ -1,0 +1,172 @@
+/** Website template by freewebsitetemplates.com **/
+/*************Start of header Style*******************/
+#page #header {
+	width:960px;
+	height:210px;
+	margin:0 auto;
+	text-align:center;
+	position:relative;
+}
+#page #header #logo{
+    float : left;
+    margin-left : -130px
+}
+#page #header #logo img{
+	width: 300px;
+	height: 140px;
+	/*
+	top: 40px;
+	position: absolute;
+	left: 25px;
+	*/
+	padding-top: 5px
+}
+#page #header span {
+    position:absolute;
+    left:760px;
+    top: -25px;
+    /*color: white;*/
+    font-size: 15px;
+    font-weight: bold;
+/*    background : url("../images/btn.png");*/
+    background-position : center;
+    background-repeat : no-repeat;
+    background-size : 90%;
+    height : 115px;
+    padding-top : 40px;
+}
+#page #header span div{
+    position:absolute;
+    top:58px;
+    left: 15%;
+    /*background : url("../images/btn.png");*/
+    background-position : center;
+    background-repeat : no-repeat;
+    background-size : 110%;
+    height : 100%;
+    width : 100%;
+    opacity : 0.5;
+}
+
+
+/*Start of superior menu*/
+#page #header ul.navigation {
+	list-style-type:none;
+	margin:20px 0 0 81px;
+	padding:1px 0 3px 0;
+	display:inline-block;
+	background:transparent url("../images/bg-menu-body.png");
+	background-repeat:repeat-x;
+	background-position:center;
+	height:38px;
+	line-height:44px;
+	border-style:solid;
+	border-top:none;
+	border-bottom:none;
+	border-color:#ffffff;
+	border-width:1px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+	background: url(../images/bg-content.gif) repeat-x top left;
+	box-shadow : 2px 2px 3px 3px rgba(13, 0, 0, 0.60);
+}
+#page #header ul.navigation li {
+	float:left;
+	height:40px;
+	padding:0;
+	margin:0;
+}
+#page #header ul.navigation li.first:hover {
+	-moz-border-radius:10px 0 0 10px;
+	border-radius:10px 0 0 10px;
+}
+#page #header ul.navigation li.last:hover {
+	-moz-border-radius:0 10px 10px 0;
+	border-radius:0 10px 10px 0;
+}
+#page #header ul.navigation li a {
+	display:block;
+	text-decoration:none;
+	padding:0 20px;
+	font-family:Arial;
+	/*color:#646b60;*/
+	/*color:#B21B48;*/
+	font-size:15px;
+	font-weight:bold;
+	text-transform:uppercase;
+	text-shadow:0 1px 0 #ffffff;
+}
+#page #header ul.navigation li:hover {
+	background:transparent url("../images/bg-menu-li.png");
+	background-repeat:repeat-x;
+}
+#page #header ul.navigation li:hover a {
+	background:transparent url("../images/bg-menu-arrow-selected.png");
+	background-repeat:no-repeat;
+	background-position:top center;
+	/*color:#ff0D45;*/
+	text-shadow:1px 0 1px #787b5a;
+}
+#page #header ul.navigation li.active {
+	background:transparent url("../images/bg-menu-li.png");
+	background-repeat:repeat-x;
+}
+#page #header ul.navigation li.active a {
+	background:transparent url("../images/bg-menu-arrow-selected.png");
+	background-repeat:no-repeat;
+	background-position:top center;
+	/*color:#FF0D45;*/
+	text-shadow:1px 0 1px #787b5a;
+}
+#page #header ul.navigation li.first.active {
+	display:inline-block;
+	-moz-border-radius:10px 0 0 10px;
+	border-radius:10px 0 0 10px;
+}
+#page #header ul.navigation li.last.active {
+	display:inline-block;
+	-moz-border-radius:0 10px 10px 0;
+	border-radius:0 10px 10px 0;
+}
+/*End of superior menu style*/
+/*************Start of header social medias Style*******************/
+#background #page #header ul.connect {
+	list-style-type:none;
+	margin:20px 20px 0 0;
+	padding:0;
+	width:150px;
+    position:relative;
+    left:-40%;
+}
+#background #page #header .header ul.connect li {
+	float:left;
+	margin:0 10px;
+}
+#background #page #header ul.connect li a.facebook {
+	background: url("../images/icon.png") no-repeat scroll 0 -76px transparent;
+	height:26px;
+	width:25px;
+	display:inline-block;
+}
+#background #page #header ul.connect li a.facebook:hover {
+	background: url("../images/icon.png") no-repeat scroll 0 0 transparent;
+}
+#background #page #header ul.connect li a.twitter {
+	background: url("../images/icon.png") no-repeat scroll 0 -384px transparent;
+	height:26px;
+	width:35px;
+	display:inline-block;
+}
+#background #page #header ul.connect li a.twitter:hover {
+	background: url("../images/icon.png") no-repeat scroll 0 -308px transparent;
+}
+#background #page #header ul.connect li a.googleplus {
+	background: url("../images/icon.png") no-repeat scroll 0 -230px transparent;
+	height:28px;
+	width:30px;
+	display:inline-block;
+}
+#background #page #header ul.connect li a.googleplus:hover {
+	background: url("../images/icon.png") no-repeat scroll 0 -152px transparent;
+}
+/*End of header style*/

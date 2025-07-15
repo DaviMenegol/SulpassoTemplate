@@ -1,0 +1,48 @@
+#body .partners {
+	margin: 0 auto;
+	padding: 25px 0 70px 0;
+	width: 960px;
+}	
+#body .partners h2 {
+	color: #2a4f5e;	
+	font-size: 20px;
+	margin: 0;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 30px 0 10px 0;	
+}
+
+#background #page #body .featured {
+    height: 900px !important;
+}
+#background #page #body .featured:after {
+        right : -8.6%;
+}
+#page #body .featured section{
+    width:880px !important;
+    height: 900px !important;
+    padding: 5px !important;
+}
+/*************Start rules for the partners display*******************/
+#page #body .featured section.content .partners .partner-display{
+    width: 250px;
+    display : block;
+    float : left;
+    padding-left : 40px;
+}
+#page #body .featured section.content .partners .partner-display .partner-img{
+    width: 95%;
+}
+.partner-img-system{
+    position: relative;
+    width: 15px;
+    height: 15px;
+    top: -25px;
+    left: 220px;
+}
+/*************End of the partners display rules*******************/
+/*************This section is just for the home page*******************/ 
+/*************hide it in all other pages of the site*******************/
+#page #body div#section{
+	display : none;
+}

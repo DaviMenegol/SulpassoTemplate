@@ -1,0 +1,65 @@
+#background #page #body .featured{
+	height :500px;
+}
+#background #page #body .featured section p {
+	font-size:20px;
+}
+#background #page #body .featured section p a {
+	font-size:20px;
+}
+#background #page #body .featured section p a:hover {
+	font-size:25px;
+}
+
+.featured .content
+{
+    overflow : hidden !important;
+}
+
+#background #page #body .featured .content .noticias div{
+    height : 100%;
+    width : 575px;
+    display : inline;
+    float : left;
+    margin-right : 50px;
+}
+
+#background #page #body .featured aside{
+	display : block;
+	float : right;
+	width : 20%;
+	position : relative;
+	top : 50px;
+	left : 35px;
+	list-style-type : none;
+}
+
+#background #page #body #section{
+	display : none;
+}
+
+.noticias
+{
+    position : relative !important;
+    width: 90%;
+    overflow : hidden;
+    display : inline-block !important;
+}
+
+.paging a
+{
+    display : block;
+}
+
+.paging a.active
+{
+    font-weight : bold;
+    background : #CDCDCD;
+    border : 1px solid #610000;
+    border-radius : 3px;
+    -moz-border-radius : 3px;
+    -khtml-border-radius : 3px;
+    -webkit-border-radius : 3px;
+    -o-border-radius : 3px;
+    -ms-border-radius : 3px;
+}

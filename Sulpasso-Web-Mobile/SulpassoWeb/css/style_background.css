@@ -1,0 +1,229 @@
+/** Website template by freewebsitetemplates.com **/
+/*************Start of full page Style*******************/
+body {
+	margin:0;
+	padding:0;
+	/*background: url("../images/bg-body.jpg");
+	background: url("../images/background.png");*/
+	background-size : 100%;
+	font-family:Arial;
+	font-size:14px;
+	line-height:25px;
+}
+a {
+	outline:0;
+}
+img {
+	border:0;
+}
+@font-face {
+	font-family: 'KreonBold';
+	src: url('../fonts/kreon-bold-webfont.eot');
+	src: url('../fonts/kreon-bold-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/kreon-bold-webfont.woff') format('woff'),
+	url('../fonts/kreon-bold-webfont.ttf') format('truetype'),
+	url('../fonts/kreon-bold-webfont.svg#KreonBold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'kreonlight';
+	src: url('../fonts/kreon-light-webfont.eot');
+	src: url('../fonts/kreon-light-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/kreon-light-webfont.woff') format('woff'),
+	url('../fonts/kreon-light-webfont.ttf') format('truetype'),
+	url('../fonts/kreon-light-webfont.svg#kreonlight') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+/*************End of full page Style*******************/
+/*************Start of center page Style*******************/
+#background {
+	/*background: url("../images/bg-page.jpg");
+	background-position:top center;*/
+	background-repeat:no-repeat;
+	height:1000px;
+}	
+#background #page {
+	width:960px;
+	margin:0 auto;
+	padding:0;
+}	
+#background #page #body {
+	width:950px;
+	padding:0 10px;
+	margin:0 auto;
+}
+/*************Start of featured center page Style*******************/
+#background #page #body .featured {
+	/*background:url("../images/clock.png");
+	background : transparent;*/
+	border-radius : 20px;
+	background-position:top;
+	background-repeat:no-repeat;
+	width:1010px;
+	height:600px;
+    	overflow: hidden;
+	display : inline-flex;
+	-moz-box-shadow : 0 0 15px 3px rgba(242, 225, 242, 0.60);
+	-webkit-box-shadow : 0 0 15px 3px rgba(242, 225, 242, 0.60);
+	box-shadow : 0 0 15px 3px rgba(242, 225, 242, 0.60);
+}
+#background #page #body .featured:before {
+	content : "";
+	-moz-box-shadow : 0 0 15px 3px rgba(50, 0, 0, 0.60);
+	-webkit-box-shadow : 0 0 15px 3px rgba(50, 0, 0, 0.60);
+	box-shadow : 0 0 15px 3px rgba(50, 0, 0, 0.60);
+}
+#background #page #body .featured:after {
+	content : "";
+	-moz-box-shadow : 0 0 15px 3px rgba(50, 0, 0, 0.60);
+	-webkit-box-shadow : 0 0 15px 3px rgba(50, 0, 0, 0.60);
+	box-shadow : 0 0 15px 3px rgba(50, 0, 0, 0.60);
+	position : relative;
+	right : -11.5%;
+}
+#background #page #body .featured section{
+	list-style-type:none;
+	padding:0;
+	margin:30px 0 0 30px;
+	width:65%;
+	height:370px;
+	display : block;
+}
+#background #page #body .featured section h2 {
+	/*color:#ffffff;*/
+	font-family: 'KreonBold';
+	font-weight:normal;
+}
+#background #page #body .featured section h2 a {
+	/*color:#ffffff;*/
+	font-family: 'KreonBold';
+	font-size:43px;
+	text-decoration:none;
+	font-weight:normal;
+}
+#background #page #body .featured section p {
+	/*color:#fbfbfb;*/
+	font-family: 'kreonlight';
+	font-size:14px;
+	line-height:22px;
+	text-align:justify;
+	margin-bottom:30px;
+}
+#background #page #body .featured section p .paragraph{
+	margin:30px;
+}
+#background #page #body .featured section p a {
+	color:#fbfbfb;
+	font-family: 'kreonlight';
+	font-size:14px;
+}
+#background #page #body .featured section p a:hover {
+	color:#fbfbfb;
+	text-decoration:none;
+}
+/*All section in these rules are ul li at the original model*/
+/*************End of featured center page Style*******************/
+/*************Start of normal center page Style*******************/
+#background #page #body #section {
+	/*background:url("../images/separator-vertical.gif");*/
+	background-position:top;
+	background-repeat:repeat-x;
+	width:960px;
+	padding:40px 0 0 0;
+	margin-top:10px;
+	position:relative;
+	left:-5px;
+}
+#background #page #body #section .footer {
+	/*background:url("../images/bg-footer-content-top-curve.jpg");*/
+	background-position:center top;
+	background-repeat:no-repeat;
+	padding-top:20px;
+}
+	#background #page #body #section .footer .body {
+	/*background:url("../images/bg-footer-content.gif");*/
+	background-position:center;
+	background-repeat:repeat-y;
+	padding:0 40px 10px 40px;
+}
+#background #page #body #section .footer .body ul.article {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	width:910px;
+	overflow:hidden;
+}
+#background #page #body #section .footer .body ul.article li a img {
+	border:0;
+}
+#background #page #body #section .footer .body ul.article li h2 {
+	text-align:center;
+}
+#background #page #body #section .footer .body ul.article li h2 a {
+	text-decoration:none;
+	text-align:center;
+	color:#024ca2;
+	font-family: 'KreonBold';
+	font-weight:normal;
+}
+#background #page #body #section .footer .body ul.article li p {
+	text-align:justify;
+	font-size:12px;
+	color:#8a8989;
+	font-family: 'Georgia';
+	font-weight:normal;
+	line-height:20px;
+}
+#background #page #body #section .footer .body ul.article li p a {
+	text-align:justify;
+	font-size:12px;
+	color:#8a8989;
+	font-family: 'Georgia';
+	font-weight:normal;
+}
+#background #page #body #section .footer .body ul.article li p a:hover {
+	color:#007fde;
+	text-decoration:none;
+}
+#background #page #body #section .footer .body ul.article li.first {
+	float:left;
+	width:258px;
+	padding: 0 26px 0 0;
+	margin-left:5px;
+}
+#background #page #body #section .footer .body ul.article li {
+	float:left;
+	width:259px;
+	padding:0 24px 0 23px;
+	/*background:url("../images/separator-horizontal.gif");*/
+	background-position:center right;
+	background-repeat:no-repeat;
+}
+#background #page #body #section .footer .body ul.article li.last {
+	float:left;
+	width:258px;
+	padding:0 0 0 22px;
+	background-image:none;
+}
+#background #page #body #section .footer .body ul.article li a.readmore {
+	/*background:url("../images/button.png") no-repeat scroll 0 -160px transparent;*/
+	display:block;
+	width:259px;
+	height:30px;
+	text-decoration:none;
+	line-height:30px;
+	text-align:center;
+	/*color:#ffffff;*/
+	margin:20px 0;
+	font-family: 'KreonBold';
+	font-size:16px;
+	font-weight:normal;
+	text-shadow:0 1px 1px #327d33;
+}
+#background #page #body #section .footer .body ul.article li a.readmore:hover {
+	/*background:url("../images/button.png") no-repeat scroll 0 -80px transparent;*/
+}
+/*************Start of normal center page Style*******************/
+/*************End of center page Style*******************/

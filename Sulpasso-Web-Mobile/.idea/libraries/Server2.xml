@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Server2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/SulpassoWeb/Server/MPDF_6_0.zip!/" />
+      <root url="jar://$PROJECT_DIR$/SulpassoWeb/Server/fpdf181.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

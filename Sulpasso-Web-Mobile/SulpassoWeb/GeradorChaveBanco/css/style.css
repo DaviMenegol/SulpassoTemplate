@@ -1,0 +1,353 @@
+@charset "UTF-8";
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+/* ELEMENTOS DA INTERFACE */
+
+body {
+    background-color: #eee;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 0;
+}
+
+h2, h3, h4 {
+    color: rgb(51, 122, 183);
+    margin: 10px 0 0 0;
+    text-align: center;
+}
+
+/* TABELAS E LISTAS */
+
+table {
+    width: 700px;
+    box-sizing: border-box;
+    border-spacing: 0px;
+}
+::-webkit-scrollbar {
+    width: 12px;
+    background-image: linear-gradient(0deg, #ffffff 0%, #eee 20%, #eee 80%,#ffffff 100%);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #9bd8f7;
+    width: 4px;
+}
+
+table th {
+    background-color: rgb(51, 122, 183);
+    color: white;
+    padding: 5px;
+    text-align: left;
+    font-size: 1em;
+}
+
+table td {
+    padding: 5px;
+    border: 2px solid rgb(51, 122, 183);
+    text-align: left;
+    font-size: 0.8em;
+    white-space: nowrap;
+    color: rgb(51, 122, 183);
+    background: linear-gradient(0deg, #eee 0%,rgba(255, 255, 255)50%, #eee 100%);
+    
+}
+
+/* ELEMENTOS DE FORMULÁRIO */
+
+form label {
+    display: block;
+    width: fit-content;
+    font-size: 1em;
+    font-weight: 100;
+    padding: 3px;
+    margin: 8px;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+}
+
+input[type=button], button {
+    width: 100%;
+    background-color: rgb(51, 122, 183);
+    font-size: 1em;
+    color: white;
+    padding: 10px 20px;
+    margin: 4px 0;
+    border-width: 1px;
+    border-color: rgb(46, 109, 164);
+    border-radius: 4px;
+    cursor: pointer;
+    height: 38px;
+    transition: 0.2s;
+}
+
+input[type=button]:hover, button:hover {
+    background-color: rgb(36, 86, 130);
+    border-color: rgb(150, 177, 200);
+    transition: 0.2s;
+}
+
+input[type=button]:active, button:active {
+    background-color: rgb(129, 194, 255);
+    border-color: rgb(150, 177, 200);
+    transition: 0.2s;
+}
+
+.inputs {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.inputs input[type=text], select {
+    height: 30px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    margin: 8px 0px 8px 0px;
+    transition: 0.2s;
+}
+
+.inputs input[type=text]:hover, select:hover {
+    border: 1px solid #fafafa;
+    transition: 0.2s;
+}
+
+.inputs input[type=text] {
+    width: 100%;
+    margin-right: 10px;
+}
+
+select {
+    width: 100%;
+}
+
+.outputs {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: 0.2s;
+    opacity: 100%;
+}
+
+.hide {
+    transition: 0.2s;
+    opacity: 0%;
+}
+
+.hide input {
+    cursor: default;
+}
+
+.outputs input[type=text] {
+    width: 100%;
+    height: 30px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+#chaveSupervisor {
+  margin: 8px 8px 8px 0px;
+}
+#inputVendedores {
+    width: 60%;
+  }
+
+
+#meuFormulario {
+    width: 500px;
+    margin: 50px 0;
+    display: block;
+}
+
+.container {
+    width: 700px;
+    height: auto;
+    background: linear-gradient(0deg, #eee 0%,rgba(255, 255, 255)50%, #eee 100%);
+    display: flex;
+    justify-content: center;
+}
+
+.container2 {
+    width: 700px;
+    height: auto;
+    justify-content: center;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+#preco, #qtd {
+    width: 100%;
+}
+
+.verde {
+    border-color: #4CAF50 !important;
+    border-width: 1.5px;
+}
+
+.switch {
+    position: relative;
+    display: flex;
+    width: 60px;
+    height: 30px;
+    margin: 10px auto;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cecece;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: rgb(24, 129, 214);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px rgb(0, 140, 255);
+}
+
+input:checked + .slider:before {
+    transform: translateX(28px);
+}
+
+#config td{
+    border: 2px solid rgb(107, 107, 107) !important;
+    background-image: linear-gradient(0deg, rgb(220, 221, 215) 0%, #eee 20%, #eee 80%, rgb(220, 221, 215) 100%);
+    color: rgb(49, 49, 49);
+}
+#space td{
+    visibility: hidden;
+}
+
+#error td{
+    border: 2px solid rgb(226, 111, 111) !important;
+    background-image: linear-gradient(0deg, rgb(255, 193, 193) 0%, #ffaeae 20%, #ffaeae 80%, rgb(255, 193, 193) 100%);
+    color: rgb(114, 0, 0);
+}
+
+.baseBlue{
+    background: rgb(51, 122, 183) !important;
+    color: white !important;
+    font-weight: bold;
+    text-align: center;
+}
+
+.baseGray{
+    background: rgb(107, 107, 107) !important;
+    color: white !important;
+    font-weight: bold;
+    text-align: center;
+}
+.baseRed{
+    background: rgb(226, 111, 111) !important;
+    color: white !important;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.tooltip {
+    position: relative;
+    display: flex;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    left: 65px;
+    bottom: 0px;
+    width: auto;
+    padding: 0.3em;
+    background-color: #9bd8f7;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 6px;
+    height: 30px;
+    position: absolute;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* MEDIA QUERIES PARA DISPOSITIVOS MÓVEIS */
+@media (max-width: 768px) {
+
+    body{
+        max-width: 100vh;
+    }
+  #meuFormulario {
+    margin-top: 0px;
+  }
+
+    .inputs, .outputs {
+        flex-direction: column;
+    }
+
+    .inputs input[type=text], select, .outputs input[type=text], button {
+        width: 100%;
+        height: 50px;
+        font-size: 1.5em;
+    }
+
+    
+    .container, .container2, table , #meuFormulario, #inputVendedores {
+        width: 100%;
+    }
+
+    .switch {
+        left: auto;
+        margin-left: auto;
+        margin-right: auto;
+    } 
+    form label {
+        display: block;
+        width: fit-content;
+        font-size: 1em;
+        font-weight: bold;
+        padding: 3px;
+        margin: 8px;
+        border-radius: 5px;
+        color: rgb(0, 0, 0);
+    }
+
+
+}
